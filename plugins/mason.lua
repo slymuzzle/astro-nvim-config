@@ -20,8 +20,10 @@ return {
         -- Markdown
         "zk",
 
+        -- Js
+        "eslint",
+
         -- Web
-        "tsserver",
         "html",
         "cssls",
 
@@ -43,6 +45,7 @@ return {
         "stylua",
 
         -- Php
+        "phpcs",
         "phpcbf",
 
         -- Web

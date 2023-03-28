@@ -1,6 +1,3 @@
--- local neogen = require "neogen"
-local telescope = require "telescope"
-
 -- Mapping data with "desc" stored directly by vim.keymap.set().
 --
 -- Please use this mappings table to set keyboard mapping since this is the
