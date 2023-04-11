@@ -1,3 +1,7 @@
+local path = require "plenary.path"
+local null_ls = require "null-ls"
+local scan = require'plenary.scandir'
+
 -- customize mason plugins
 return {
   -- use mason-lspconfig to configure LSP installations
@@ -50,6 +54,30 @@ return {
 
         -- Web
         "prettier",
+      },
+      handlers = {
+        phpcs = function()
+          local matched = scan.scan_dir('.', { hidden = true, depth = 3, search_pattern = 'phpcs.xml' })
+          local standard = path:new(matched[1])
+
+          null_ls.register(null_ls.builtins.diagnostics.phpcs.with {
+            prefer_local = "vendor/bin",
+            extra_args = {
+              "--standard=" .. (standard:exists() and standard:absolute() or "PSR12"),
+            },
+          })
+        end,
+        phpcbf = function()
+          local matched = scan.scan_dir('.', { hidden = true, depth = 3, search_pattern = 'phpcs.xml' })
+          local standard = path:new(matched[1])
+
+          null_ls.register(null_ls.builtins.formatting.phpcbf.with {
+            prefer_local = "vendor/bin",
+            extra_args = {
+              "--standard=" .. (standard:exists() and standard:absolute() or "PSR12"),
+            },
+          })
+        end,
       },
     },
   },

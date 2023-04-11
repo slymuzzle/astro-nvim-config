@@ -3,7 +3,10 @@ return {
     intelephense = {
       phpdoc = {
         useFullyQualifiedNames = true,
-      }
+      },
+      format = {
+        enable = false,
+      },
     }
   },
 }
