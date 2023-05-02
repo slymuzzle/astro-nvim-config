@@ -1,8 +1,9 @@
 return {
   "petertriho/nvim-scrollbar",
-  event = "BufRead",
+  event = "User AstroFile",
   config = function()
     require("scrollbar").setup {
+      hide_if_all_visible = true,
       max_lines = 10000,
       excluded_buftypes = {
         "terminal",
@@ -45,11 +46,9 @@ return {
         },
       },
       handlers = {
-        cursor = true,
-        diagnostic = true,
-        gitsigns = true, -- Requires gitsigns
-        handle = true,
-        search = true,   -- Requires hlslens
+        gitsigns = require("astronvim.utils").is_available "gitsigns",
+        search = require("astronvim.utils").is_available "hlslens",
+        ale = require("astronvim.utils").is_available "ale",
       },
     }
   end,
