@@ -1,4 +1,5 @@
 local pets = require "pets"
+local async = require "plenary.async"
 
 local M = {}
 
@@ -11,15 +12,19 @@ M.my_pets = {
 }
 
 function M.call_pets()
-  for _, pet in pairs(M.my_pets) do
-    pets.create_pet(pet.name, pet.type, pet.style)
-  end
+  async.run(function()
+    for _, pet in pairs(M.my_pets) do
+      pets.create_pet(pet.name, pet.type, pet.style)
+    end
+  end)
 end
 
 function M.kill_pets()
-  for _, pet in pairs(M.my_pets) do
-    pets.kill_pet(pet.name)
-  end
+  async.run(function()
+    for _, pet in pairs(M.my_pets) do
+      pets.kill_pet(pet.name)
+    end
+  end)
 end
 
 return M

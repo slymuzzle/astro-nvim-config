@@ -38,6 +38,9 @@ return {
     ["<leader>Go"] = { "<cmd>ChatGPT<cr>", desc = "Open interactive window" },
     ["<leader>Ga"] = { "<cmd>ChatGPTActAs<cr>", desc = "Act as" },
     ["<leader>Ge"] = { "<cmd>ChatGPTEditWithInstructions<cr>", desc = "Edit with instructions" },
+
+    --- UI
+    ["<leader>uT"] = { "<cmd>TransparentToggle<cr>", desc = "Toggle transparency" },
   },
   t = {
     ["<esc>"] = { "<C-\\><C-n>", desc = "Terminal normal mode" },

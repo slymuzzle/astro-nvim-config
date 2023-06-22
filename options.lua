@@ -8,7 +8,6 @@ return {
     signcolumn = "auto", -- sets vim.opt.signcolumn to auto
     wrap = false, -- sets vim.opt.wrap
     swapfile = false, -- Disable use of swapfile for the buffer
-    autoread = true, -- When a file has been detected to have been changed outside, automatically read it again.
     guifont = { "Input", ":h16" },
   },
   g = {
@@ -19,6 +18,7 @@ return {
     diagnostics_mode = 3, -- set the visibility of diagnostics in the UI (0=off, 1=only show in status line, 2=virtual text off, 3=all on)
     icons_enabled = true, -- disable icons in the UI (disable if no nerd font is available, requires :PackerSync after changing)
     ui_notifications_enabled = true, -- disable notifications when toggling UI elements
+    autoread = true, -- When a file has been detected to have been changed outside, automatically read it again.
   },
 }
 -- If you need more control, you can use the function()...end notation

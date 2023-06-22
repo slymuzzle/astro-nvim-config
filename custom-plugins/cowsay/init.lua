@@ -12,11 +12,10 @@ local function split(s, delimiter)
   return result
 end
 
-local cows_table = require "user.custom-plugins.cowsay.cows-table"
-
 local M = {}
 
 function M.say(text)
+  local cows_table = require "user.custom-plugins.cowsay.cows-table"
   math.randomseed(os.time())
   return split(
     string.format(

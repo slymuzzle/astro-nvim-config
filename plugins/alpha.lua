@@ -12,7 +12,7 @@ local function getGreeting(name)
     [2] = "  Good morning",
     [3] = "  Good afternoon",
     [4] = "  Good evening",
-    [5] = "望 Good night",
+    [5] = "󰖔 Good night",
   }
 
   local greetingIndex = nil
@@ -86,9 +86,9 @@ return {
           val = {
             button("LDR n", "  New File  "),
             button("LDR f f", "  Find File  "),
-            button("LDR f o", "  Recents  "),
-            button("LDR f p", "  Projects  "),
-            button("LDR f N", "  Notes  "),
+            button("LDR f o", "󰅐  Recents  "),
+            button("LDR f p", "  Projects  "),
+            button("LDR f N", "󰠮  Notes  "),
             button("LDR f a", "  Settings  "),
           },
           opts = { spacing = 1 },

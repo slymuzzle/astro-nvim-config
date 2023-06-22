@@ -1,6 +1,6 @@
 local path = require "plenary.path"
 local null_ls = require "null-ls"
-local scan = require'plenary.scandir'
+local scan = require "plenary.scandir"
 
 -- customize mason plugins
 return {
@@ -24,10 +24,8 @@ return {
         -- Markdown
         "zk",
 
-        -- Js
-        "eslint",
-
         -- Web
+        "tsserver",
         "html",
         "cssls",
 
@@ -53,11 +51,12 @@ return {
         "phpcbf",
 
         -- Web
-        "prettier",
+        "eslint_d",
+        "prettierd",
       },
       handlers = {
         phpcs = function()
-          local matched = scan.scan_dir('.', { hidden = true, depth = 3, search_pattern = 'phpcs.xml' })
+          local matched = scan.scan_dir(".", { hidden = true, depth = 3, search_pattern = "phpcs.xml" })
           local standard = path:new(matched[1])
 
           null_ls.register(null_ls.builtins.diagnostics.phpcs.with {
@@ -68,7 +67,7 @@ return {
           })
         end,
         phpcbf = function()
-          local matched = scan.scan_dir('.', { hidden = true, depth = 3, search_pattern = 'phpcs.xml' })
+          local matched = scan.scan_dir(".", { hidden = true, depth = 3, search_pattern = "phpcs.xml" })
           local standard = path:new(matched[1])
 
           null_ls.register(null_ls.builtins.formatting.phpcbf.with {
@@ -78,6 +77,27 @@ return {
             },
           })
         end,
+        prettierd = function()
+          null_ls.register(null_ls.builtins.formatting.prettierd.with {
+            condition = function(util)
+              return util.root_has_file "package.json"
+                  or util.root_has_file ".prettierrc"
+                  or util.root_has_file ".prettierrc.json"
+                  or util.root_has_file ".prettierrc.js"
+                  and not util.root_has_file "composer.json"
+            end,
+          })
+        end,
+        eslint_d = function()
+          null_ls.register(null_ls.builtins.diagnostics.eslint_d.with {
+            condition = function(util)
+              return util.root_has_file "package.json"
+                  or util.root_has_file ".eslintrc.json"
+                  or util.root_has_file ".eslintrc.js"
+                  and not util.root_has_file "composer.json"
+            end,
+          })
+        end,
       },
     },
   },
@@ -85,7 +105,7 @@ return {
     "jay-babu/mason-nvim-dap.nvim",
     -- overrides `require("mason-nvim-dap").setup(...)`
     opts = {
-      -- ensure_installed = { "python" },
+      ensure_installed = { "js" },
     },
   },
 }
