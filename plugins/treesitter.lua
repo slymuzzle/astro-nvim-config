@@ -6,6 +6,7 @@ return {
       "c",
       "javascript",
       "tsx",
+      "http",
       "json",
       "jsonc",
       "lua",

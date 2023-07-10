@@ -16,7 +16,7 @@ function M.call_pets()
     for _, pet in pairs(M.my_pets) do
       pets.create_pet(pet.name, pet.type, pet.style)
     end
-  end)
+  end, function() end)
 end
 
 function M.kill_pets()
@@ -24,7 +24,7 @@ function M.kill_pets()
     for _, pet in pairs(M.my_pets) do
       pets.kill_pet(pet.name)
     end
-  end)
+  end, function() end)
 end
 
 return M

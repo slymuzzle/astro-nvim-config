@@ -1,18 +1,18 @@
 -- Extend Alpha configuration
 
 local button = require("astronvim.utils").alpha_button
-
+local get_icon = require("astronvim.utils").get_icon
 local cow = require "user.custom-plugins.cowsay"
 
 local function getGreeting(name)
   local tableTime = os.date "*t"
   local hour = tableTime.hour
   local greetingsTable = {
-    [1] = "  Sleep well",
-    [2] = "  Good morning",
-    [3] = "  Good afternoon",
-    [4] = "  Good evening",
-    [5] = "󰖔 Good night",
+    [1] = get_icon("Bed", 2, true) .. "Sleep well",
+    [2] = get_icon("Morning", 2, true) .. "Good morning",
+    [3] = get_icon("Afternoon", 2, true) .. "Good afternoon",
+    [4] = get_icon("Evening", 2, true) .. "Good evening",
+    [5] = get_icon("Night", 2, true) .. "Good night",
   }
 
   local greetingIndex = nil
@@ -65,14 +65,12 @@ if vim.o.lines < 36 then
   padding = vim.fn.max { 2, vim.fn.floor(vim.fn.winheight(0) * 0.25) }
 end
 
-if vim.o.lines > 44 then
-  padding = vim.fn.max { 2, vim.fn.floor(vim.fn.winheight(0) * 0.16) }
-end
+if vim.o.lines > 44 then padding = vim.fn.max { 2, vim.fn.floor(vim.fn.winheight(0) * 0.16) } end
 
 return {
   "goolord/alpha-nvim",
-  config = function ()
-    require'alpha'.setup({
+  config = function()
+    require("alpha").setup {
       layout = {
         { type = "padding", val = padding },
         {
@@ -84,12 +82,12 @@ return {
         {
           type = "group",
           val = {
-            button("LDR n", "  New File  "),
-            button("LDR f f", "  Find File  "),
-            button("LDR f o", "󰅐  Recents  "),
-            button("LDR f p", "  Projects  "),
-            button("LDR f N", "󰠮  Notes  "),
-            button("LDR f a", "  Settings  "),
+            button("LDR n  ", get_icon("FileNew", 2, true) .. "New File  "),
+            button("LDR f f", get_icon("Search", 2, true) .. "Find File  "),
+            button("LDR f o", get_icon("DefaultFile", 2, true) .. "Recents  "),
+            button("LDR f p", get_icon("FolderClosed", 2, true) .. "Projects  "),
+            button("LDR f N", get_icon("Notebook", 2, true) .. "Notes  "),
+            button("LDR f a", get_icon("Gear", 2, true) .. "Settings  "),
           },
           opts = { spacing = 1 },
         },
@@ -99,6 +97,6 @@ return {
           opts = { position = "center", hl = "DashboardCenter" },
         },
       },
-    })
-  end
+    }
+  end,
 }
