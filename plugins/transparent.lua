@@ -1,3 +1,5 @@
+local prefix = "<leader>u"
+
 return {
   "xiyaowong/transparent.nvim",
   opts = {
@@ -15,5 +17,8 @@ return {
       "StatusLine",
     },
   },
-  cmd = { "TransparentToggle" }
+  cmd = { "TransparentToggle" },
+  keys = {
+    { prefix .. "T", "<cmd>TransparentToggle<cr>", desc = "Toggle transparency" },
+  },
 }

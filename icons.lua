@@ -6,4 +6,8 @@ return {
   Afternoon = "",
   Evening = "",
   Night = "󰖔",
+  Tentacle = "",
+  PuzzleEdit = "󱓓",
+  Web = "󰖟",
+  FileDocumentEditOutline = "󰷉",
 }

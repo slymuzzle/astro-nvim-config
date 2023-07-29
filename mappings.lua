@@ -1,5 +1,5 @@
 -- Mapping data with "desc" stored directly by vim.keymap.set().
---
+local get_icon = require("astronvim.utils").get_icon
 -- Please use this mappings table to set keyboard mapping since this is the
 -- lower level configuration and more robust one. (which-key will
 -- automatically pick-up stored data by this setting.)
@@ -34,13 +34,16 @@ return {
     },
 
     -- ChatGPT
-    ["<leader>G"] = { name = " ChatGPT" },
-    ["<leader>Go"] = { "<cmd>ChatGPT<cr>", desc = "Open interactive window" },
-    ["<leader>Ga"] = { "<cmd>ChatGPTActAs<cr>", desc = "Act as" },
-    ["<leader>Ge"] = { "<cmd>ChatGPTEditWithInstructions<cr>", desc = "Edit with instructions" },
+    ["<leader>G"] = { name = get_icon("Tentacle", 1, true) .. "ChatGPT" },
 
-    --- UI
-    ["<leader>uT"] = { "<cmd>TransparentToggle<cr>", desc = "Toggle transparency" },
+    --- Refactoring
+    ["<leader>r"] = { name = get_icon("PuzzleEdit", 1, true) .. "Refactoring" },
+
+    --- RestNvim
+    ["<leader>R"] = { name = get_icon("Web", 1, true) .. "Rest" },
+
+    --- Annotation
+    ["<leader>a"] = { name = get_icon("FileDocumentEditOutline", 1, true) .. "Annotation" },
   },
   t = {
     ["<esc>"] = { "<C-\\><C-n>", desc = "Terminal normal mode" },

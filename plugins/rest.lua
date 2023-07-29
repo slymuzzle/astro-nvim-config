@@ -1,4 +1,4 @@
-local prefix = "<leader>r"
+local prefix = "<leader>R"
 
 return {
   "rest-nvim/rest.nvim",
@@ -10,7 +10,6 @@ return {
   },
   dependencies = { "nvim-lua/plenary.nvim" },
   keys = {
-    { prefix, desc = "RestNvim" },
     { prefix .. "r", "<Plug>RestNvim", desc = "Run request" },
   },
   opts = {},

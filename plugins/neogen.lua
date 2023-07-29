@@ -16,7 +16,6 @@ return {
     }
   end,
   keys = {
-    { prefix, desc = "Annotation" },
     { prefix .. "<cr>", function() require("neogen").generate { type = "current" } end, desc = "Current" },
     { prefix .. "c", function() require("neogen").generate { type = "class" } end, desc = "Class" },
     { prefix .. "f", function() require("neogen").generate { type = "func" } end, desc = "Function" },
