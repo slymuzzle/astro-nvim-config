@@ -5,7 +5,7 @@ return {
   cmd = { "PetsNew", "PetsNewCustom", "PetsList" },
   cond = function() return not vim.g.neovide end,
   opts = {
-    row = 6,
+    row = 7,
     popup = {
       width = "100%",
     },

@@ -15,6 +15,7 @@ end
 
 return {
   "nvim-neo-tree/neo-tree.nvim",
+  version = "3.3",
   opts = function(_, opts)
     local events = require "neo-tree.events"
     opts.event_handlers = {

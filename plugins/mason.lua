@@ -18,7 +18,7 @@ return {
 
         -- Configs
         "yamlls",
-        "jsonls",
+        "jsonls@4.7.0",
         "lemminx",
 
         -- Markdown
