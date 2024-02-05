@@ -4,11 +4,14 @@ return {
     -- config variable is the default configuration table for the setup function call
     -- local null_ls = require "null-ls"
 
+    config.debug = true
+
     -- Check supported formatters and linters
     -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
     -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
     config.sources = {
       require "typescript.extensions.null-ls.code-actions",
+      require "null-ls.builtins.code_actions.eslint_d",
       -- Set a formatter
       -- null_ls.builtins.formatting.stylua,
       -- null_ls.builtins.formatting.prettier,

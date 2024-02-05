@@ -14,16 +14,12 @@ return function()
   if not vim.g.neovide then
     vim.api.nvim_create_autocmd("User", {
       pattern = "AlphaReady",
-      callback = function ()
-        pets.call_pets()
-      end
+      callback = function() pets.call_pets() end,
     })
 
     vim.api.nvim_create_autocmd("User", {
       pattern = "AlphaClosed",
-      callback = function ()
-        pets.kill_pets()
-      end
+      callback = function() pets.kill_pets() end,
     })
   end
 

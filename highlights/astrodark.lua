@@ -3,7 +3,7 @@ local utils = require "astronvim.utils"
 local c = utils.extend_tbl(require "astrotheme.palettes.astrodark", {
   syntax = {
     yellow = "#e5c06b",
-  }
+  },
 })
 
 return function(hl)

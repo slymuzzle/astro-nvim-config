@@ -18,6 +18,7 @@ return {
   version = "3.3",
   opts = function(_, opts)
     local events = require "neo-tree.events"
+
     opts.event_handlers = {
       {
         event = events.FILE_MOVED,
@@ -28,5 +29,7 @@ return {
         handler = on_file_remove,
       },
     }
+
+    opts.filesystem.use_libuv_file_watcher = true
   end,
 }

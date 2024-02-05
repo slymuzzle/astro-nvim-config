@@ -44,6 +44,14 @@ return {
       end,
       desc = "ToggleTerm lazydocker",
     },
+
+    --- Lazygit
+    ["<leader>tk"] = {
+      function()
+        if vim.fn.executable "k9s" == 1 then toggle_term_cmd "k9s" end
+      end,
+      desc = "ToggleTerm k9s",
+    },
   },
   t = {
     ["<esc>"] = { "<C-\\><C-n>", desc = "Terminal normal mode" },
