@@ -15,7 +15,6 @@ end
 
 return {
   "nvim-neo-tree/neo-tree.nvim",
-  version = "3.3",
   opts = function(_, opts)
     local events = require "neo-tree.events"
 
@@ -30,6 +29,14 @@ return {
       },
     }
 
-    opts.filesystem.use_libuv_file_watcher = true
+    opts.window.mappings.oc = false -- order_by_created
+    opts.window.mappings.od = false -- order_by_diagnostics
+    opts.window.mappings.og = false -- order_by_git_status
+    opts.window.mappings.om = false -- order_by_modified
+    opts.window.mappings.on = false -- order_by_name
+    opts.window.mappings.os = false -- order_by_size
+    opts.window.mappings.ot = false -- order_by_type
+
+    return opts
   end,
 }
