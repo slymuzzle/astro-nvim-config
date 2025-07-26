@@ -27,6 +27,7 @@ return {
       -- see `:h vim.filetype.add` for usage
       extension = {
         arb = "json",
+        drift = "sql",
       },
     },
     -- vim options can be configured here
