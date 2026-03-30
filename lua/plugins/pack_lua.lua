@@ -7,6 +7,15 @@ local is_aarch64 = vim.loop.os_uname().machine == "aarch64"
 ---@type LazySpec
 return {
   {
+    "AstroNvim/astrocore",
+    opts = function(_, opts)
+      if opts.treesitter.ensure_installed ~= "all" then
+        opts.treesitter.ensure_installed =
+          require("astrocore").list_insert_unique(opts.treesitter.ensure_installed, { "lua", "luap" })
+      end
+    end,
+  },
+  {
     "AstroNvim/astrolsp",
     ---@type AstroLSPOpts
     opts = {
@@ -23,14 +32,6 @@ return {
         },
       },
     },
-  },
-  {
-    "nvim-treesitter/nvim-treesitter",
-    opts = function(_, opts)
-      if opts.ensure_installed ~= "all" then
-        opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "lua", "luap" })
-      end
-    end,
   },
   {
     "williamboman/mason-lspconfig.nvim",

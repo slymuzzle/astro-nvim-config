@@ -1,11 +1,11 @@
 ---@type LazySpec
 return {
   {
-    "nvim-treesitter/nvim-treesitter",
+    "AstroNvim/astrocore",
     opts = function(_, opts)
-      if opts.ensure_installed ~= "all" then
-        opts.ensure_installed =
-          require("astrocore").list_insert_unique(opts.ensure_installed, { "markdown", "markdown_inline" })
+      if opts.treesitter.ensure_installed ~= "all" then
+        opts.treesitter.ensure_installed =
+          require("astrocore").list_insert_unique(opts.treesitter.ensure_installed, { "markdown", "markdown_inline" })
       end
     end,
   },

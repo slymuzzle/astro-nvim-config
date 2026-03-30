@@ -1,30 +1,36 @@
 ---@type LazySpec
 return {
   {
-    "b0o/schemastore.nvim",
+    "AstroNvim/astrocore",
+    opts = function(_, opts)
+      opts.filetypes = vim.tbl_deep_extend("force", opts.filetypes or {}, {
+        extension = {
+          arb = "json",
+        },
+      })
+
+      if opts.treesitter.ensure_installed ~= "all" then
+        opts.treesitter.ensure_installed =
+          require("astrocore").list_insert_unique(opts.treesitter.ensure_installed, { "json" })
+      end
+    end,
   },
   {
     "AstroNvim/astrolsp",
-    ---@type AstroLSPOpts
-    opts = {
-      config = {
-        jsonls = {
-          on_new_config = function(config)
-            if not config.settings.json.schemas then config.settings.json.schemas = {} end
-            local schemas = require("schemastore").json.schemas()
-            vim.list_extend(config.settings.json.schemas, schemas)
-          end,
-          settings = { json = { validate = { enable = true } } },
-        },
-      },
+    dependencies = {
+      "b0o/schemastore.nvim",
     },
-  },
-  {
-    "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts)
-      if opts.ensure_installed ~= "all" then
-        opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "json" })
-      end
+      opts.config = vim.tbl_deep_extend("force", opts.config or {}, {
+        jsonls = {
+          settings = {
+            json = {
+              schemas = require("schemastore").json.schemas(),
+              validate = { enable = true },
+            },
+          },
+        },
+      })
     end,
   },
   {

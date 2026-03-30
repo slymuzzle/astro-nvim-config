@@ -20,7 +20,6 @@ return {
         "hcl",
         "make",
         "tree-sitter-kitty",
-        "sql",
         -- add more arguments for adding more treesitter parsers
       },
     },
