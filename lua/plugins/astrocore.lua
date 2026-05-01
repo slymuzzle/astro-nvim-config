@@ -25,6 +25,9 @@ return {
     -- passed to `vim.filetype.add`
     filetypes = {
       -- see `:h vim.filetype.add` for usage
+      extension = {
+        tmpl = "gotmpl",
+      },
     },
     -- vim options can be configured here
     options = {

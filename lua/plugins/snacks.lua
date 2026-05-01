@@ -58,7 +58,7 @@ return {
           {
             pane = 2,
             section = "terminal",
-            cmd = "krabby name snorlax --no-title",
+            cmd = "krabby name snorlax --no-title; sleep 0.1",
             height = 21,
             width = 38,
             indent = 4,

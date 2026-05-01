@@ -15,7 +15,7 @@ return {
     opts = { filetypes = { filename = { ["docker-compose.yaml"] = "yaml.docker-compose" } } },
   },
   {
-    "williamboman/mason-lspconfig.nvim",
+    "mason-org/mason-lspconfig.nvim",
     opts = function(_, opts)
       opts.ensure_installed =
         require("astrocore").list_insert_unique(opts.ensure_installed, { "docker-language-server" })

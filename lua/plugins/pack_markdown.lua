@@ -4,13 +4,15 @@ return {
     "AstroNvim/astrocore",
     opts = function(_, opts)
       if opts.treesitter.ensure_installed ~= "all" then
-        opts.treesitter.ensure_installed =
-          require("astrocore").list_insert_unique(opts.treesitter.ensure_installed, { "markdown", "markdown_inline" })
+        opts.treesitter.ensure_installed = require("astrocore").list_insert_unique(
+          opts.treesitter.ensure_installed,
+          { "markdown", "markdown_inline", "latex" }
+        )
       end
     end,
   },
   {
-    "williamboman/mason-lspconfig.nvim",
+    "mason-org/mason-lspconfig.nvim",
     opts = function(_, opts)
       opts.ensure_installed = require("astrocore").list_insert_unique(opts.ensure_installed, { "marksman" })
     end,
